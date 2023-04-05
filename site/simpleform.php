@@ -1,6 +1,6 @@
 <?php
-require("..\util\connect-db.php");
-require("..\util\friend-db.php");
+require("..\\util\\connect-db.php");
+require("..\\util\\friend-db.php");
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if(!empty($_POST['actionBtn']) && $_POST['actionBtn'] == 'Add Friend') {
