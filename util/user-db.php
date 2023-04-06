@@ -24,4 +24,34 @@ function createUser($userId, $gamertag, $firstName, $lastName, $country, $city, 
     $statement->closeCursor();
 }
 
+function getGamerTag($user_id) {
+    global $db;
+    $query = "SELECT gamer_tag FROM User WHERE user_id = $user_id";
+    $statement = $db->prepare($query);
+    $statement->execute();
+    $results = $statement->fetchAll();
+    $statement->closeCursor();
+    return $results;
+}
+
+function getFullName($user_id) {
+    global $db;
+    $query = "SELECT first_name, last_name FROM User WHERE user_id = $user_id";
+    $statement = $db->prepare($query);
+    $statement->execute();
+    $results = $statement->fetchAll();
+    $statement->closeCursor();
+    return $results;
+}
+
+function getLocation($user_id) {
+    global $db;
+    $query = "SELECT city, country FROM User WHERE user_id = $user_id";
+    $statement = $db->prepare($query);
+    $statement->execute();
+    $results = $statement->fetchAll();
+    $statement->closeCursor();
+    return $results;
+}
+
 ?>
