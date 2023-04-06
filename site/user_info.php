@@ -2,7 +2,20 @@
 require("..\util\connect-db.php");
 require("..\util\user-db.php");
 
-$user_id = 0;
+session_start();
+
+if (isset($_SESSION['user_id'])) {
+    // User is logged in, display their information
+} else {
+    // User is not logged in, redirect them to the login page
+    header("Location: login.php");
+    exit;
+}
+
+$user_id = $_SESSION['user_id'];
+
+
+// $user_id = 0;
 $gamer_tag = getGamerTag($user_id);
 $full_name = getFullName($user_id);
 $location = getLocation($user_id);

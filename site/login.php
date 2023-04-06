@@ -2,6 +2,8 @@
 require("..\util\connect-db.php");
 require("..\util\user-db.php");
 
+session_start();
+
 function authenticateUser($userId, $password) {
     $allUsers = getAllUsers();
     foreach ($allUsers as $user) {
@@ -19,6 +21,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
 
     if (authenticateUser($userId, $password)) {
+        // Store the user ID in a session variable
+        $_SESSION['user_id'] = $userId;
+    
         // Redirect to the user_info page after successful login
         header("Location: user_info.php");
         exit;
