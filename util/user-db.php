@@ -12,6 +12,7 @@ function getAllUsers(){
 function createUser($userId, $gamertag, $firstName, $lastName, $country, $city, $password) {
     global $db;
     $query = "INSERT INTO User VALUES (:user_id, :gamer_tag, :first_name, :last_name, :country, :city, :password)";
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
     $statement = $db->prepare($query);
     $statement->bindValue(':user_id', $userId);
     $statement->bindValue(':gamer_tag', $gamertag);
@@ -19,7 +20,7 @@ function createUser($userId, $gamertag, $firstName, $lastName, $country, $city, 
     $statement->bindValue(':last_name', $lastName);
     $statement->bindValue(':country', $country);
     $statement->bindValue(':city', $city);
-    $statement->bindValue(':password', $password);
+    $statement->bindValue(':password', $hashed_password);
     $statement->execute();
     $statement->closeCursor();
 }

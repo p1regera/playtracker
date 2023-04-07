@@ -2,6 +2,8 @@
 require("..\util\connect-db.php");
 require("..\util\user-db.php");
 
+session_start();
+
 function userExists($userId) {
     $allUsers = getAllUsers();
     foreach ($allUsers as $user) {
@@ -29,6 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         createUser($userId, $gamertag, $firstName, $lastName, $country, $city, $password);
         // echo "Account created successfully!";
+        $_SESSION['user_id'] = $userId;
         header("Location: user_info.php");
         exit;
     }
@@ -80,6 +83,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <button type="submit" class="btn btn-primary">Sign Up</button>
         </form>
+        <div style="margin-top: 10px;">
+            <a href="login.php">Back to login</a>
+        </div>
     </div>
 
     <!-- Popup window for the message -->

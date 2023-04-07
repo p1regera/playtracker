@@ -7,7 +7,7 @@ session_start();
 function authenticateUser($userId, $password) {
     $allUsers = getAllUsers();
     foreach ($allUsers as $user) {
-        if ($user['user_id'] == $userId && $user['password'] == $password) {
+        if ($user['user_id'] == $userId && password_verify($password, $user['password'])) {
             return true;
         }
     }
@@ -53,7 +53,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <button type="submit" class="btn btn-primary">Login</button>
         </form>
-
+        <div style="margin-top: 10px;">
+            <!-- don't have an account, redirect to sign_up.php -->
+            <a href="sign_up.php">Don't have an account? Sign up here!</a>
+        </div>
         <?php if (!empty($message)) { ?>
             <div class="alert alert-danger mt-3" role="alert">
                 <?php echo $message; ?>
