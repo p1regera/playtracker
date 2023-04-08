@@ -54,5 +54,4 @@ function getLocation($user_id) {
     $statement->closeCursor();
     return $results;
 }
-
 ?>
