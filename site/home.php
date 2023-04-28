@@ -34,9 +34,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['search'])) {
                 </a>
             </div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="games.php">Games</a></li>
-                <li><a href="#">Users</a></li>
+                <li class="active"><a href="index.php">Home</a></li>
+                <li><a href="game_info.php">Games</a></li>
+                <li><a href="user_info.php">Users</a></li>
                 <li><a href="friends.php">Friends</a></li>
             </ul>
             <form class="navbar-form navbar-left">
@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['search'])) {
             </form>
             <ul class="nav navbar-nav navbar-right">
                 <?php
-                session_start();
+                //session_start();
                 if (!isset($_SESSION['user_id'])) {
                     echo '<li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Log in</a></li>';
                 } else {
