@@ -64,10 +64,74 @@ $location = getLocation($user_id);
         </div>
     </nav>
     <div class="container">
-        <h1 class="mt-5">User Page: <?php echo $gamer_tag[0][0] ?></h1>
-        <p><b>User <?php echo $user_id ?> Name:</b> <?php echo $full_name[0][0];  echo " "; echo $full_name[0][1] ?> </p>
-        <p><b>User <?php echo $user_id ?> Location:</b> <?php echo $location[0][0];  echo ", "; echo $location[0][1] ?> </p>
-
+        <h1 class="mt-5">User Page</h1>
+        <p><b>Gamer Tag:</b> <?php echo $gamer_tag[0][0] ?></p>
+        <p><b>User ID:</b> <?php echo $user_id ?></p>
+        <p><b>Full Name:</b> <?php echo $full_name[0][0];  echo " "; echo $full_name[0][1] ?> </p>
+        <p><b>Location:</b> <?php echo $location[0][0];  echo ", "; echo $location[0][1] ?> </p>
+        <br><br>
+        <h3>Find other users!</h3>
+        <p>If you know the user's ID, search by that. Otherwise, feel free to search by their name.</p>
+        <form action="user_info.php" method=post>
+            <input type="text" class="form-control" id="user_id" name="user_id" placeholder="Search by User ID..."><br>
+            <input type="text" class="form-control" id="gtag" name="gtag" placeholder="Search by Gamertag..."><br>
+            <input type="text" class="form-control" id="fname" name="fname" placeholder="Search by First Name..."><br>
+            <input type="text" class="form-control" id="lname" name="lname" placeholder="Search by Last Name..."><br>
+            <input type="submit">
+        </form>
+        <?php
+            if(isset($_POST["user_id"])){
+                $user_id = $_POST["user_id"];
+                if (strlen($user_id)!=0){
+                    $user_info = getUserInfo_ID($user_id);
+                }
+            }
+            if(isset($_POST["user_id"])){
+                $gamer_tag = $_POST["gtag"];
+                if (strlen($gamer_tag)!=0){
+                    $user_info = getUserInfo_GTag($gamer_tag);
+                }
+            }
+            if(isset($_POST["fname"])){
+                $fname = $_POST["fname"];
+                if(strlen($fname)!=0){
+                    $user_info = getUserInfo_FName($fname);
+                }
+                if(isset($_POST["lname"])){
+                    $lname = $_POST["lname"];
+                    if(strlen($lname)!=0){
+                        $user_info = getUserInfo_FLName($fname, $lname);
+                    }
+                }
+            }
+            else if(isset($_POST["lname"])){
+                $lname = $_POST["lname"];
+                if(strlen($lname)!=0){
+                   $user_info = getUserInfo_LName($lname);
+               }
+            }
+            // foreach ($user_info[0] as $item)
+            //     echo $item;
+            // echo $user_info[0][3];
+        ?>
+        
+        <?php
+        if(isset($user_info)) {
+        ?>
+        <h1>CREATE ADD FRIEND BUTTON TO EACH USER</h1>
+        <h3>User(s)</h3>
+        <?php
+            foreach ($user_info as $item) {
+        ?>
+            <p>User ID = <?php echo $item[0]; ?></p>
+            <p>Gamertag = <?php echo $item[1]; ?></p>
+            <p>Name = <?php echo $item[2]; ?> <?php echo $item[3]; ?></p>
+            <p>Location = <?php echo $item[5]; ?>, <?php echo $item[4] ?></p><br> 
+        <?php
+            }
+        }
+        ?>
+        
         
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

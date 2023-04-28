@@ -103,6 +103,7 @@ $location = getLocation($user_id);
         <?php
         if(isset($game_info)) {
         ?>
+        <h1>CREATE "PLAYED GAME" BUTTON TO EACH GAME</h1>
         <h3>Game(s)</h3>
         <?php
             foreach ($game_info as $item) {
