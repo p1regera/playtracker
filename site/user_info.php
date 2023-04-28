@@ -1,6 +1,7 @@
 <?php
 require("..\util\connect-db.php");
 require("..\util\user-db.php");
+require("..\util\game-db.php");
 
 session_start();
 
@@ -30,7 +31,7 @@ $location = getLocation($user_id);
 <body>
     <div class="container">
         <h1 class="mt-5">User Page: <?php echo $gamer_tag[0][0] ?></h1>
-        <p><b> User <?php echo $user_id ?> Name:</b> <?php echo $full_name[0][0];  echo " "; echo $full_name[0][1] ?> </p>
+        <p><b>User <?php echo $user_id ?> Name:</b> <?php echo $full_name[0][0];  echo " "; echo $full_name[0][1] ?> </p>
         <p><b>User <?php echo $user_id ?> Location:</b> <?php echo $location[0][0];  echo ", "; echo $location[0][1] ?> </p>
 
         
