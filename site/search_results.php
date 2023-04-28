@@ -33,7 +33,7 @@ $results = $_SESSION['search_results'];
                 </a>
             </div>
             <ul class="nav navbar-nav">
-                <li><a href="index.php">Home</a></li>
+                <li><a href="../site">Home</a></li>
                 <li><a href="game_info.php">Games</a></li>
                 <li><a href="user_info.php">Users</a></li>
                 <li><a href="friends.php">Friends</a></li>
