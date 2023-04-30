@@ -1,6 +1,7 @@
 <?php
-require("..\util\connect-db.php");
-require("..\util\user-db.php");
+require("..\util\\connect-db.php");
+require("..\util\\user-db.php");
+require("..\util\\friend-db.php");
 
 session_start();
 
@@ -22,7 +23,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-// $friends = getFriends($user_id);
+$friends = getFriends($user_id);
+
 $allUsers = getAllUsers();
 ?>
 
@@ -77,7 +79,8 @@ $allUsers = getAllUsers();
                 <?php } else { ?>
                         <ul class="list-group">
                             <?php foreach ($friends as $friend) { ?>
-                                <li class="list-group-item"><?php echo getFullName($friend)[0][0]; ?></li>
+                                <li class="list-group-item"> Gamertag: <?php echo $friend["gamer_tag"]; ?>,
+                                 User ID: <?php echo $friend["user_id2"]; ?></li>
                             <?php } ?>
                         </ul>
                     <?php } ?>
@@ -99,16 +102,26 @@ $allUsers = getAllUsers();
         <div class="row">
             <div class="col-md-6">
                 <h2>Delete a Friend</h2>
+                
+                <form action="friends.php" method="post">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Enter a user ID" name="delete_friend" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Delete Friend</button>
+                </form>
+
+                <!--
                 <form action="friends.php" method="post">
                     <div class="form-group">
                         <select class="form-control" name="delete_friend" required>
                             <?php foreach ($friends as $friend) { ?>
-                                <option value="<?php echo $friend; ?>"><?php echo getFullName($friend)[0][0]; ?></option>
+                                <option value="<?php echo $friend; ?>"><?php echo $friend["gamer_tag"]; ?></option>
                             <?php } ?>
                         </select>
                     </div>
                     <button type="submit" class="btn btn-danger">Delete Friend</button>
                     </form>
+                -->
             </div>
         </div>
     </div>
