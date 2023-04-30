@@ -92,7 +92,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
-<<<<<<< HEAD
-=======
-?>
->>>>>>> a342d540ed32e802c2df195537518d60c07e5cfe
