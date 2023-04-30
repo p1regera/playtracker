@@ -99,4 +99,26 @@ function getUserInfo_GTag($gamer_tag){
     $statement->closeCursor();
     return $results;
 }
+
+function updateUserInfo($user_id,$gamer_tag, $first_name, $last_name){
+    global $db;
+    $query = "UPDATE User SET gamer_tag=:gamer_tag , first_name =:first_name, last_name =:last_name WHERE user_id =:user_id";
+
+    try {
+		$statement = $db->prepare($query);
+		$statement->bindValue(':gamer_tag', $gamer_tag);
+		$statement->bindValue(':first_name', $first_name);
+		$statement->bindValue(':last_name', $last_name);
+        $statement->bindValue(':user_id', $user_id);
+		$statement->execute();
+	
+		//echo "number of rows affected = " . $statement->rowCount() . "##";
+		if ($statement->rowCount() == 0)
+	   		echo "No row has been updated <br/>";	
+	
+		$statement->closeCursor();
+	} catch (PDOException $e){
+		echo $e->getMessage();
+	}
+}
 ?>

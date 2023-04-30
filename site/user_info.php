@@ -65,12 +65,15 @@ $location = getLocation($user_id);
             </ul>
         </div>
     </nav>
+
     <div class="container">
         <h1 class="mt-5">User Page</h1>
         <p><b>Gamer Tag:</b> <?php echo $gamer_tag[0][0] ?></p>
         <p><b>User ID:</b> <?php echo $user_id ?></p>
         <p><b>Full Name:</b> <?php echo $full_name[0][0];  echo " "; echo $full_name[0][1] ?> </p>
         <p><b>Location:</b> <?php echo $location[0][0];  echo ", "; echo $location[0][1] ?> </p>
+
+        <a href="update_user.php"> <button>Edit User Info</button> </a>
         <br><br>
         <h3>Find other users!</h3>
         <p>If you know the user's ID, search by that. Otherwise, feel free to search by their name.</p>

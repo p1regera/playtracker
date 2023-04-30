@@ -1,6 +1,7 @@
 <?php
 require("..\util\connect-db.php");
 require("..\util\\review-db.php");
+require("..\util\\user-db.php");
 
 session_start();
 
@@ -91,4 +92,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
-?>

@@ -23,7 +23,7 @@ $statement->closeCursor();
                 </a>
             </div>
             <ul class="nav navbar-nav">
-            <li><a href="../site">Home</a></li>
+                <li><a href="../site">Home</a></li>
                 <li><a href="games_played.php">Games Played</a></li>
                 <li class="active"><a href="game_info.php">Game Search</a></li>
                 <li><a href="user_info.php">Users</a></li>
