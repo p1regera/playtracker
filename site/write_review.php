@@ -1,6 +1,7 @@
 <?php
 require("..\util\connect-db.php");
 require("..\util\\review-db.php");
+require("..\util\\user-db.php");
 
 session_start();
 
