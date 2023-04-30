@@ -34,9 +34,11 @@ $results = $_SESSION['search_results'];
             </div>
             <ul class="nav navbar-nav">
                 <li><a href="../site">Home</a></li>
-                <li><a href="game_info.php">Games</a></li>
+                <li><a href="games_played.php">Games Played</a></li>
+                <li><a href="game_info.php">Game Search</a></li>
                 <li><a href="user_info.php">Users</a></li>
                 <li><a href="friends.php">Friends</a></li>
+                <li><a href="write_review.php">Review</a></li>
             </ul>
             <form class="navbar-form navbar-left" action="index.php" method="post">
                 <div class="form-group">

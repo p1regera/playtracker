@@ -1,6 +1,6 @@
 <?php
 require("..\util\connect-db.php");
-require("..\util\user-db.php");
+require("..\util\\user-db.php");
 require("..\util\game-db.php");
 
 session_start();
@@ -38,9 +38,11 @@ $location = getLocation($user_id);
             </div>
             <ul class="nav navbar-nav">
                 <li><a href="../site">Home</a></li>
-                <li class="active"><a href="game_info.php">Games</a></li>
+                <li><a href="games_played.php">Games Played</a></li>
+                <li class="active"><a href="game_info.php">Game Search</a></li>
                 <li><a href="user_info.php">Users</a></li>
                 <li><a href="friends.php">Friends</a></li>
+                <li><a href="write_review.php">Review</a></li>
             </ul>
             <form class="navbar-form navbar-left">
                 <div class="form-group">
@@ -103,15 +105,14 @@ $location = getLocation($user_id);
         <?php
         if(isset($game_info)) {
         ?>
-        <h1>CREATE "PLAYED GAME" BUTTON TO EACH GAME</h1>
         <h3>Game(s)</h3>
         <?php
             foreach ($game_info as $item) {
         ?>
-            <p>Game_id = <?php echo $item[0]; ?></p>
-            <p>Title = <?php echo $item[3]; ?></p>
-            <p>Release Date = <?php echo $item[2]; ?></p>
-            <p>Genre = <?php echo $item[4]; ?></p><br>
+            <p>Game ID: <?php echo $item[0]; ?></p>
+            <p>Title: <?php echo $item[3]; ?></p>
+            <p>Release Date: <?php echo $item[2]; ?></p>
+            <p>Genre: <?php echo $item[4]; ?></p><br>
             
         <?php
             }

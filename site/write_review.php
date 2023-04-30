@@ -36,10 +36,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </a>
             </div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="../site">Home</a></li>
-                <li><a href="game_info.php">Games</a></li>
+                <li><a href="../site">Home</a></li>
+                <li><a href="games_played.php">Games Played</a></li>
+                <li><a href="game_info.php">Game Search</a></li>
                 <li><a href="user_info.php">Users</a></li>
                 <li><a href="friends.php">Friends</a></li>
+                <li class="active"><a href="write_review.php">Review</a></li>
             </ul>
             <form class="navbar-form navbar-left">
                 <div class="form-group">
