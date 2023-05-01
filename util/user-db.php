@@ -100,9 +100,9 @@ function getUserInfo_GTag($gamer_tag){
     return $results;
 }
 
-function updateUserInfo($user_id,$gamer_tag, $first_name, $last_name){
+function updateUserInfo($user_id,$gamer_tag, $first_name, $last_name, $country, $city){
     global $db;
-    $query = "UPDATE User SET gamer_tag=:gamer_tag , first_name =:first_name, last_name =:last_name WHERE user_id =:user_id";
+    $query = "UPDATE User SET gamer_tag=:gamer_tag , first_name =:first_name, last_name =:last_name, country =:country, city =:city WHERE user_id =:user_id";
 
     try {
 		$statement = $db->prepare($query);
@@ -110,6 +110,8 @@ function updateUserInfo($user_id,$gamer_tag, $first_name, $last_name){
 		$statement->bindValue(':first_name', $first_name);
 		$statement->bindValue(':last_name', $last_name);
         $statement->bindValue(':user_id', $user_id);
+        $statement->bindValue(':country', $country);
+        $statement->bindValue(':city', $city);
 		$statement->execute();
 	
 		//echo "number of rows affected = " . $statement->rowCount() . "##";

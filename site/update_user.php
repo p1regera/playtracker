@@ -16,11 +16,13 @@ if (isset($_SESSION['user_id'])) {
 $user_id = $_SESSION['user_id'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['new_g']) && isset($_POST['new_f']) && isset($_POST['new_l'])) {
+    if (isset($_POST['new_g']) && isset($_POST['new_f']) && isset($_POST['new_l']) && isset($_POST['new_co']) && isset($_POST['new_ci'])) {
         $new_g = $_POST['new_g'];
         $new_f = $_POST['new_f'];
         $new_l = $_POST['new_l'];
-        updateUserInfo($user_id, $new_g, $new_f, $new_l);
+        $new_co = $_POST['new_co'];
+        $new_ci = $_POST['new_ci'];
+        updateUserInfo($user_id, $new_g, $new_f, $new_l, $new_co, $new_ci);
         echo "Info Updated!!";
     } else {
         echo "Fill out all fields!!";
@@ -82,6 +84,8 @@ $location = getLocation($user_id);
                         <input type="text" class="form-control" placeholder="Enter new gamertag!" name="new_g" required>
                         <input type="text" class="form-control" placeholder="Enter new first name" name="new_f" required>
                         <input type="text" class="form-control" placeholder="Enter new last name" name="new_l" required>
+                        <input type="text" class="form-control" placeholder="Enter new country" name="new_co" required>
+                        <input type="text" class="form-control" placeholder="Enter new city" name="new_ci" required>
                     </div>
                     <button type="submit" class="btn btn-primary">Update Info</button>
                 </form>
