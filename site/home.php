@@ -130,16 +130,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['search'])) {
     <div class="container">
         <h1>Welcome to PlayTracker!</h1>
         <p>Here you can find information about various games and connect with other gamers from around the world.</p>
-        <div class="search-form">
-            <form method="post">
-                <div class="input-group">
-                    <input type="text" class="form-control search-input" placeholder="Search for games, users, ..." name="search_query">
-                    <div class="input-group-append">
-                        <button class="btn btn-primary" type="submit" name="search"><i class="fa fa-search"></i></button>
-                    </div>
-                </div>
-            </form>
-        </div>
     </div>
 </div>
 
