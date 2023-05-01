@@ -33,6 +33,73 @@ $allUsers = getAllUsers();
 <head>
     <title>Friends</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        .game-info {
+            margin-top: 30px;
+        }
+        .game-info h2 {
+            margin-top: 0;
+        }
+        .game-info p {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        .game-info a.btn {
+            margin-right: 10px;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .navbar-brand,
+        .navbar-nav .nav-link {
+            color: #fff;
+        }
+
+        .navbar-brand img {
+            max-height: 25%;
+            max-width: 25%;
+        }
+
+        .jumbotron {
+            background-image: url("../../img/bg.jpg");
+            background-size: cover;
+            background-position: center;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .jumbotron h1 {
+            color: #fff;
+            text-shadow: 1px 1px #000;
+            font-weight: bold;
+            font-size: 5rem;
+            text-align: center;
+        }
+
+        .jumbotron p {
+            color: #fff;
+            text-shadow: 1px 1px #000;
+            font-size: 2rem;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .search-form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .search-input {
+            border-radius: 0;
+        }
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-inverse">
@@ -46,6 +113,7 @@ $allUsers = getAllUsers();
                 <li><a href="../site">Home</a></li>
                 <li><a href="games_played.php">Games Played</a></li>
                 <li><a href="game_info.php">Game Search</a></li>
+                <li><a href="game_achievements.php">Achievements</a></li>
                 <li><a href="user_info.php">Users</a></li>
                 <li class="active"><a href="friends.php">Friends</a></li>
                 <li><a href="write_review.php">Review</a></li>
@@ -65,6 +133,14 @@ $allUsers = getAllUsers();
             </ul>
         </div>
     </nav>
+
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Friends</h1>
+            <p>View your friends.</p>
+        </div>
+    </div>
+
     <div class="container">
         <h1 class="mt-5">Friends</h1>
         <div class="row">

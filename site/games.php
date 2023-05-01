@@ -29,6 +29,57 @@ $statement->closeCursor();
         .game-info a.btn {
             margin-right: 10px;
         }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .navbar-brand,
+        .navbar-nav .nav-link {
+            color: #fff;
+        }
+
+        .navbar-brand img {
+            max-height: 25%;
+            max-width: 25%;
+        }
+
+        .jumbotron {
+            background-image: url("../../img/bg.jpg");
+            background-size: cover;
+            background-position: center;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .jumbotron h1 {
+            color: #fff;
+            text-shadow: 1px 1px #000;
+            font-weight: bold;
+            font-size: 5rem;
+            text-align: center;
+        }
+
+        .jumbotron p {
+            color: #fff;
+            text-shadow: 1px 1px #000;
+            font-size: 2rem;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .search-form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .search-input {
+            border-radius: 0;
+        }
     </style>
 </head>
 <body>
@@ -62,8 +113,14 @@ $statement->closeCursor();
             </ul>
         </div>
     </nav>
+    <div class="jumbotron">
+        <div class="container">
+            <h1>All Games</h1>
+            <p>The list of all the games tracked on PlayTracker.</p>
+        </div>
+    </div>
     <div class="container">
-        <h1>All Games</h1>
+        <!-- <h1>All Games</h1> -->
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -71,6 +128,7 @@ $statement->closeCursor();
                     <th>Genre</th>
                     <th>Release Date</th>
                     <th>Studio</th>
+                    <th>Achievements</th>
                 </tr>
             </thead>
             <tbody>
@@ -80,7 +138,10 @@ $statement->closeCursor();
                         <td><?php echo $game['genre']; ?></td>
                         <td><?php echo $game['release_date']; ?></td>
                         <td><?php echo $game['studio_id']; ?></td>
-                    </tr>
+                        <td>
+                            <a href="game_achievements.php?game_id=<?php echo $game['game_id']; ?>" class="btn btn-primary">Achievements</a>
+                        </td>
+                    
                 <?php } ?>
             </tbody>
         </table>

@@ -27,6 +27,58 @@ $location = getLocation($user_id);
 <head>
     <title>User <?php echo $user_id ?></title> <!-- Need to implement $user_id sessions -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .navbar-brand,
+        .navbar-nav .nav-link {
+            color: #fff;
+        }
+
+        .navbar-brand img {
+            max-height: 25%;
+            max-width: 25%;
+        }
+
+        .jumbotron {
+            background-image: url("../../img/bg.jpg");
+            background-size: cover;
+            background-position: center;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .jumbotron h1 {
+            color: #fff;
+            text-shadow: 1px 1px #000;
+            font-weight: bold;
+            font-size: 5rem;
+            text-align: center;
+        }
+
+        .jumbotron p {
+            color: #fff;
+            text-shadow: 1px 1px #000;
+            font-size: 2rem;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .search-form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .search-input {
+            border-radius: 0;
+        }
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-inverse">
@@ -60,8 +112,15 @@ $location = getLocation($user_id);
         </div>
     </nav>
 
+    <div class="jumbotron">
+        <div class="container">
+            <h1>User Page</h1>
+            <p>View details about a user.</p>
+        </div>
+    </div>
+
     <div class="container">
-        <h1 class="mt-5">User Page</h1>
+        <h1 class="mt-5">Information</h1>
         <p><b>Gamer Tag:</b> <?php echo $gamer_tag[0][0] ?></p>
         <p><b>User ID:</b> <?php echo $user_id ?></p>
         <p><b>Full Name:</b> <?php echo $full_name[0][0];  echo " "; echo $full_name[0][1] ?> </p>

@@ -36,6 +36,58 @@
 <head>
     <title>Games Played</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .navbar-brand,
+        .navbar-nav .nav-link {
+            color: #fff;
+        }
+
+        .navbar-brand img {
+            max-height: 25%;
+            max-width: 25%;
+        }
+
+        .jumbotron {
+            background-image: url("../../img/bg.jpg");
+            background-size: cover;
+            background-position: center;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .jumbotron h1 {
+            color: #fff;
+            text-shadow: 1px 1px #000;
+            font-weight: bold;
+            font-size: 5rem;
+            text-align: center;
+        }
+
+        .jumbotron p {
+            color: #fff;
+            text-shadow: 1px 1px #000;
+            font-size: 2rem;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .search-form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .search-input {
+            border-radius: 0;
+        }
+    </style>
 </head>
 
 <body>
@@ -50,6 +102,7 @@
                 <li><a href="../site">Home</a></li>
                 <li class="active"><a href="games_played.php">Games Played</a></li>
                 <li><a href="game_info.php">Game Search</a></li>
+                <li><a href="game_achievements.php">Achievements</a></li>
                 <li><a href="user_info.php">Users</a></li>
                 <li><a href="friends.php">Friends</a></li>
                 <li><a href="write_review.php">Review</a></li>
@@ -68,8 +121,16 @@
             </ul>
         </div>
     </nav>
+
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Games Played</h1>
+            <p>Here are a list of playable games!</p>
+        </div>
+    </div>
+
     <div class="container">
-        <h1 class="mt-5">Games Played</h1>
+        <!-- <h1 class="mt-5">Games Played</h1> -->
         <div class="row">
             <div class="col-md-6">
                 <h2>My Games</h2>
