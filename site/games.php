@@ -1,5 +1,6 @@
 <?php
 require("../util/connect-db.php");
+require("../util/game-db.php");
 
 $query = "SELECT * FROM Game";
 $statement = $db->prepare($query);
@@ -62,7 +63,7 @@ $statement->closeCursor();
                         <td><?php echo $game['title']; ?></td>
                         <td><?php echo $game['genre']; ?></td>
                         <td><?php echo $game['release_date']; ?></td>
-                        <td><?php echo $game['studio_id']; ?></td>
+                        <td><?php echo getStudioName($game['game_id'])[0][0]; ?></td>
                     </tr>
                 <?php } ?>
             </tbody>

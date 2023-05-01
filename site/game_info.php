@@ -106,7 +106,8 @@ $location = getLocation($user_id);
             <p>Game ID: <?php echo $item[0]; ?></p>
             <p>Title: <?php echo $item[3]; ?></p>
             <p>Release Date: <?php echo $item[2]; ?></p>
-            <p>Genre: <?php echo $item[4]; ?></p><br>
+            <p>Genre: <?php echo $item[4]; ?></p>
+            <p>Studio: <?php echo getStudioName($item[0])[0][0]; ?></p><br>
             
         <?php
             }

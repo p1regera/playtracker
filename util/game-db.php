@@ -51,4 +51,15 @@ function getGameInfo_RDate($release_date) {
     $statement->closeCursor();
     return $results;
 }
+
+function getStudioName($game_id) {
+    global $db;
+    $query = "SELECT Name FROM Game NATURAL JOIN Studio WHERE game_id = $game_id";
+    $statement = $db->prepare($query);
+    $statement->execute();
+    $results = $statement->fetchAll();
+    $statement->closeCursor();
+    return $results;
+}
+
 ?>
