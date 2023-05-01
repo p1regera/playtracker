@@ -44,12 +44,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <li><a href="friends.php">Friends</a></li>
                 <li class="active"><a href="write_review.php">Review</a></li>
             </ul>
-            <form class="navbar-form navbar-left">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search for games, users, ...">
-                </div>
-                <button type="submit" class="btn btn-default">Search</button>
-            </form>
             <ul class="nav navbar-nav navbar-right">
                 <?php
                 //session_start();

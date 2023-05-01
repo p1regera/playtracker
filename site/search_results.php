@@ -40,12 +40,6 @@ $results = $_SESSION['search_results'];
                 <li><a href="friends.php">Friends</a></li>
                 <li><a href="write_review.php">Review</a></li>
             </ul>
-            <form class="navbar-form navbar-left" action="index.php" method="post">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search for games, users, ..." name="search_query">
-                </div>
-                <button type="submit" class="btn btn-default" name="search">Search</button>
-            </form>
             <ul class="nav navbar-nav navbar-right">
                 <?php
                 $user_id = $_SESSION['user_id'];

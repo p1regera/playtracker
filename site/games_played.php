@@ -66,10 +66,6 @@
                     <a class="nav-link" href="write_review.php">Review</a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search for games, users, ..." aria-label="Search">
-                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-            </form>
             <ul class="navbar-nav ml-auto">
                 <?php if (!isset($_SESSION['user_id'])): ?>
                     <li class="nav-item">

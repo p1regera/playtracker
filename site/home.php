@@ -110,14 +110,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['search'])) {
                             <a class="nav-link" href="write_review.php">Review</a>
                         </li>
                     </ul>
-                    <form class="form-inline ml-auto" method="post">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search for games, users, ..." name="search_query">
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-light" type="submit" name="search"><i class="fa fa-search"></i></button>
-                            </div>
-                        </div>
-                    </form>
                     <?php
                     if (!isset($_SESSION['user_id'])) {
                         echo '<a class="btn btn-outline-light ml-3" href="login.php">Log in</a>';
