@@ -1,52 +1,45 @@
 <?php
 require("../util/connect-db.php");
-require("../util/game-db.php");
 
-$query = "SELECT * FROM Game";
+$game_id = $_GET['id'];
+
+$query = "SELECT * FROM Achievement WHERE game_id = :game_id";
 $statement = $db->prepare($query);
+$statement->bindValue(':game_id', $game_id);
 $statement->execute();
-$games = $statement->fetchAll();
+$achievements = $statement->fetchAll();
 $statement->closeCursor();
+
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title>All Games</title>
+    <title>Game Achievements</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <style>
-        .game-info {
-            margin-top: 30px;
-        }
-        .game-info h2 {
-            margin-top: 0;
-        }
-        .game-info p {
-            font-size: 16px;
-            line-height: 1.5;
-            margin-bottom: 20px;
-        }
-        .game-info a.btn {
-            margin-right: 10px;
-        }
-    </style>
 </head>
 <body>
-    <nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <!-- <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="#">
                     <img src="../../img/logo.png" alt="Logo" style="max-height: 100%; max-width: 100%;">
-                </a> -->
+                </a>
             </div>
             <ul class="nav navbar-nav">
                 <li><a href="../site">Home</a></li>
                 <li><a href="games_played.php">Games Played</a></li>
-                <li class="active"><a href="game_info.php">Game Search</a></li>
+                <li><a href="game_info.php">Game Search</a></li>
                 <li><a href="user_info.php">Users</a></li>
                 <li><a href="friends.php">Friends</a></li>
                 <li><a href="write_review.php">Review</a></li>
             </ul>
+            <form class="navbar-form navbar-left">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search for games, users, ...">
+                </div>
+                <button type="submit" class="btn btn-default">Search</button>
+            </form>
             <ul class="nav navbar-nav navbar-right">
                 <?php
                 //session_start();
@@ -63,23 +56,19 @@ $statement->closeCursor();
         </div>
     </nav>
     <div class="container">
-        <h1>All Games</h1>
+        <h1>Achievements for Game <?php echo $game_id ?></h1>
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Title</th>
-                    <th>Genre</th>
-                    <th>Release Date</th>
-                    <th>Studio</th>
+                    <th>Name</th>
+                    <th>Description</th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($games as $game) { ?>
+                <?php foreach ($achievements as $achievement) { ?>
                     <tr>
-                        <td><?php echo $game['title']; ?></td>
-                        <td><?php echo $game['genre']; ?></td>
-                        <td><?php echo $game['release_date']; ?></td>
-                        <td><?php echo $game['studio_id']; ?></td>
+                        <td><?php echo $achievement['name']; ?></td>
+                        <td><?php echo $achievement['description']; ?></td>
                     </tr>
                 <?php } ?>
             </tbody>
