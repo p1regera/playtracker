@@ -32,9 +32,9 @@ $location = getLocation($user_id);
 <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">
+                <!-- <a class="navbar-brand" href="#">
                     <img src="../../img/logo.png" alt="Logo" style="max-height: 100%; max-width: 100%;">
-                </a>
+                </a> -->
             </div>
             <ul class="nav navbar-nav">
                 <li><a href="../site">Home</a></li>
